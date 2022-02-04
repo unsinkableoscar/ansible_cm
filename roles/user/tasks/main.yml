@@ -20,6 +20,11 @@
           group="{{ user.group }}"
           state=directory
 
+    - name: Copy file to remote host
+      copy:
+        src: /home/alles/ansible_cm/roles/user/files/test.txt
+        dest: "{{ user.dir }}"
+
 - name: Install packages
   package:
     name:
