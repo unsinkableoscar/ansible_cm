@@ -2,11 +2,18 @@
 - name: Prepare user
   hosts: all
   become: true
+  roles:
+    - { role: user, tags: [prepare] }
+- name: Add apps
+  hosts: all
+  become: true
   vars_files:
     - vars/wordpress_vault.yml    
-  roles:
-#    - { role: user, tags: [prepare] }
-    - mysql
-    - nginx
-    - php
-    - wordpress
+  roles:   
+    - { role: mysql, tags: [mysql, apps] }
+    - { role: nginx, tags: [nginx, apps] }
+    - { role: php,  tags: [php, apps] }
+    - { role: wordpress, tags: [wp, apps] }
+
+
+
