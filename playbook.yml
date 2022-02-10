@@ -1,0 +1,10 @@
+---
+- name: Prepare user
+  hosts: all
+  become: true
+  roles:
+#    - { role: user, tags: [prepare] }
+    - mysql
+    - nginx
+    - php
+    - wordpress
