@@ -1,9 +1,10 @@
 ---
 - name: Prepare user
-  hosts: all
+  hosts: server
   become: true
   roles:
     - { role: user, tags: [prepare] }
+
 - name: Add apps
   hosts: all
   become: true
@@ -15,5 +16,11 @@
     - { role: php,  tags: [php, apps] }
     - { role: wordpress, tags: [wp, apps] }
 
-
+- name: Do some tests
+  hosts: all
+  become: true
+  vars_files:
+    - vars/wordpress_vault.yml
+  roles:
+    - { role: tests, tags: [tests] }
 
