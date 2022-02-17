@@ -1,16 +1,18 @@
 - name: Check URL
   uri:
-    url: "http://192.168.10.59"
+    url: "http://localhost"
     method: GET
     status_code: 200
     timeout: 1
+#  delegate_to: 127.0.0.1
 
 - name: Download index.nginx-debian.html
   get_url:
-    url: http://192.168.10.59/wp-admin/
+    url: http://localhost/wp-admin/
     dest: /tmp/test.html
     mode: '0440'
-
+#  delegate_to: 127.0.0.1
+ 
 - name: Check if DB database exists
   mysql_db:
     name: "{{ db_name }}"
