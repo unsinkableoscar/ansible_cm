@@ -4,18 +4,18 @@
 
 - name: Run pl_nginx.yml add nginx
   import_playbook: pl_nginx.yml
-  
+
 - name: Run pl_mysql.yml add mysql
   import_playbook: pl_mysql.yml
- 
+
 - name: Add apps
   hosts: all
   become: true
   vars_files:
-    - vars/wordpress_vault.yml    
-  roles:   
-    - { role: php,  tags: [php, apps] }
-    - { role: wordpress, tags: [wp, apps] }
+    - vars/wordpress_vault.yml
+  roles:
+    - {role: php, tags: [php, apps]}
+    - {role: wordpress, tags: [wp, apps]}
 
 - name: Run pl_tests.yml run tests
   import_playbook: pl_tests.yml

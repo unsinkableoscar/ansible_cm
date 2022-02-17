@@ -6,4 +6,3 @@
     - vars/wordpress_vault.yml
   roles:
     - { role: tests, tags: [tests] }
-
