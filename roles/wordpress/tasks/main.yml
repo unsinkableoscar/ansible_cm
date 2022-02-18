@@ -40,6 +40,12 @@
       dest: "{{ sites_path }}/{{ app_name }}/wp-config.php"
     tags: [ wordpress ]
 
+  - name: Remove default page nginx
+    file:
+      state: absent
+      path: /etc/nginx/sites-enabled/default
+    tags: [ nginx ]
+
   - name: Add site to sites folder in Nginx
     template:
       src: wordpress.conf.j2
