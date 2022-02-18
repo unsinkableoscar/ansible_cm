@@ -1,0 +1,20 @@
+- name: Check URL
+  uri:
+    url: "http://localhost/wp-admin/install.php"
+    method: GET
+    status_code: 200
+    timeout: 1
+  delegate_to: localhost
+
+- name: Download page
+  get_url:
+    url: http://localhost/wp-admin/install.php
+    dest: /tmp/test.html
+    mode: '0440'
+  delegate_to: 127.0.0.1 
+
+- name: Check if DB database exists
+  become: true
+  mysql_db:
+    name: "{{ db_name }}"
+    state: present
