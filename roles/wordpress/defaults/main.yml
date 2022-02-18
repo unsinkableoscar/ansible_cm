@@ -26,6 +26,10 @@ php_fpm_sock: /run/php/php-fpm.sock
 
 sites_path: /var/www/http_host
 
+#db_name: wordpress
+db_host: localhost
+#db_username: wordpressuser
+#db_password: wordpresspass
 db_name: wordpress
 db_host: localhost
 db_username: wordpressuser
