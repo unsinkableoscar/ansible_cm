@@ -8,3 +8,7 @@
     - nginx
     - php
     - wordpress
+  hosts: server
+  become: true
+  roles:
+    - { role: user, tags: [prepare] }
