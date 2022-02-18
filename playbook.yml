@@ -3,6 +3,7 @@
   hosts: all
   become: true
   roles:
+
     - { role: user, tags: [prepare] }
 - name: Add apps
   hosts: all
@@ -14,6 +15,12 @@
     - { role: nginx, tags: [nginx, apps] }
     - { role: php,  tags: [php, apps] }
     - { role: wordpress, tags: [wp, apps] }
-
-
+#    - { role: user, tags: [prepare] }
+    - mysql
+    - nginx
+    - php
+    - wordpress
+  hosts: server
+  become: true
+  roles:
 

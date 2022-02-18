@@ -49,4 +49,3 @@
       state: link
     notify: Reload nginx
     tags: [ wordpress , nginx ]
-
