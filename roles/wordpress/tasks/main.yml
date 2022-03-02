@@ -1,5 +1,10 @@
 ---
 # tasks file for ansible-role-wordpress
+  - name: Creates directory
+    file: 
+      path: /var/www/http_host
+      state: directory 
+
 
   - name: Download and unpack latest WordPress
     unarchive:
