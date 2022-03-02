@@ -5,6 +5,7 @@
       path: /var/www/http_host
       state: directory 
 
+
   - name: Download and unpack latest WordPress
     unarchive:
       src: https://{{ app_name }}.org/latest.tar.gz

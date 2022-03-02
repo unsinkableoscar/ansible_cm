@@ -1,4 +1,5 @@
 ---
+
 - name: Run pl_user.yml add user
   import_playbook: pl_user.yml
 
@@ -8,6 +9,14 @@
 - name: Run pl_mysql.yml add mysql
   import_playbook: pl_mysql.yml
  
+
+- name: Prepare user
+  hosts: all
+  become: true
+  roles:
+
+    - { role: user, tags: [prepare] }
+
 - name: Add apps
   hosts: all
   become: true

@@ -30,3 +30,4 @@ db_name: db
 db_host: localhost
 db_username: user
 db_password: pass
+
