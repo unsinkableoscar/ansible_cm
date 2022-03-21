@@ -1,0 +1,16 @@
+---
+
+- name: Create directory
+  file:
+    path: /home/alles/date_dir
+    mode: 0775
+    state: directory
+
+- name: Create file with a date
+  file:
+    dest: /home/alles/date_dir/date.txt
+    mode: 0600
+    state: touch
+
+- name: Add date to date.txt
+  shell: echo `date` > /home/alles/date_dir/date.txt
