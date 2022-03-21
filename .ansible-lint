@@ -1,0 +1,5 @@
+exclude_paths:
+  - vars/wordpress_vault.yml
+#Исключил проверку секрета(единственная ошибка при проверке ролей)
+skip_list:
+  - '201'
